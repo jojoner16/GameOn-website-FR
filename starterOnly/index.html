@@ -67,31 +67,31 @@
             <form id="form" name="reserve" action="index.html" method="get">
               
               <!-- prénom -->
-              <div class="formData">
+              <div class="formData" data-error="Veuillez entrer 2 caractères minimum" data-error-visible="false">
                 <label for="first">Prénom</label><br />
                 <input type="text" id="first" class="text-control success" name="first" minlength="2" placeholder="Prénom"/><br />
               </div>
 
               <!-- nom -->
-              <div class="formData">
+              <div class="formData" data-error="Veuillez entrer 2 caractères minimum" data-error-visible="false">
                 <label for="last">Nom</label><br />
                 <input type="text" id="last" class="text-control" name="last" minlength="2" placeholder="Nom"/><br />
               </div>
 
               <!-- email -->
-              <div class="formData">
+              <div class="formData" data-error="Veuillez entrer une adresse email valide" data-error-visible="false">
                 <label for="email">E-mail</label><br />
-                <input type="email" id="email" class="text-control" name="email" placeholder="E-mail"/><br />
+                <input type="email" id="email" class="text-control" name="email" placeholder="exemple@email.com"/><br />
               </div>
 
               <!-- date de naissance-->
-              <div class="formData">
+              <div class="formData" data-error="Veuillez entrer votre date de naissance" data-error-visible="false">
                 <label for="birthdate">Date de naissance</label><br />
                 <input type="date" id="birthdate" class="text-control" name="birthdate"/><br /> 
               </div>
 
               <!-- tournois -->
-              <div class="formData">
+              <div class="formData" data-error="Veuillez saisir une valeur numérique" data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br />
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" placeholder="0"/>
               </div>
@@ -99,7 +99,7 @@
               <!-- villes -->
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                 
-              <div class="formData" id="locations">
+              <div class="formData" id="allLocations" data-error="Veuillez sélectionner une ville" data-error-visible="false">
 
                 <!-- new york -->
                 <input type="radio" id="location1" class="checkbox-input" name="location" value="New York"/>
@@ -145,8 +145,8 @@
 
               </div>
 
-              <!-- bouton de validation -->
-              <div class="formData">
+              <!-- Conditions d'utilisation -->
+              <div class="formData" data-error="Veuillez accepter les conditions d'utilisation" data-error-visible="false">
 
                 <input type="checkbox" id="checkbox1" class="checkbox-input"/>
                 <label class="checkbox2-label" for="checkbox1">
@@ -164,6 +164,7 @@
 
               </div>
 
+              <!-- bouton de validation -->
               <input type="submit" class="btn-submit button" value="C'est parti"/>
 
             </form>
