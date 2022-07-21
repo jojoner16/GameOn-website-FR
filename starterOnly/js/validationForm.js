@@ -11,9 +11,11 @@ const input = document.getElementsByClassName('text-control');
 const form = document.getElementById('form');
 const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
-    // Validation formulaire
+                                //----- Validation formulaire ------//
+                                
+    //verification des nom et prénom
 function checkFirstName() {
-    if (firstName.value.trim().length < 2 || last.value.trim() === '' || !firstName.value.trim().match(regex)) {
+    if (firstName.value.trim().length < 2 || last.value.trim() === '' || !firstName.value.match(regex)) {
         firstName.parentElement.setAttribute('data-error-visible', 'true');
         firstName.style.border = '1px solid #fe142f';
         return false;
