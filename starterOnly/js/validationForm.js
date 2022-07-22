@@ -1,4 +1,7 @@
     // DOM elements validations formulaire
+const modalBg = document.querySelector('.container-confirmation-submit');
+const closeBt = document.getElementsByClassName('close-modal-submit');
+const closeButton = document.getElementById('close-btn-confirmation');
 const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const email = document.getElementById('email');
@@ -15,19 +18,20 @@ const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
 
     // Vérification des nom et prénom
 function checkFirstName() {
-    if (firstName.value.trim().length < 2 || last.value.trim() === '' || !firstName.value.match(regex)) {
+    if (firstName.value.trim().length < 2 || firstName.value.trim() === '' || !firstName.value.match(regex)) {
         firstName.parentElement.setAttribute('data-error-visible', 'true');
-        firstName.style.border = '2px solid #fe142f';
+        firstName.style.border = 'solid #fe142f 0.2rem';
         return false;
     }
     first.parentElement.setAttribute('data-error-visible', 'false');
     first.style.border = 'solid #279e7a 0.2rem';
     return true;
 }
+
 function checkLastName() {
     if (lastName.value.trim().length < 2 || lastName.value.trim() === '' || !lastName.value.match(regex)) {
         lastName.parentElement.setAttribute('data-error-visible', 'true');
-        lastName.style.border = '2px solid #fe142f';
+        lastName.style.border = 'solid #fe142f 0.2rem';
         return false;
     }
     last.parentElement.setAttribute('data-error-visible', 'false');
@@ -45,7 +49,7 @@ function checkEmail() {
         return true;
     }
     email.parentElement.setAttribute('data-error-visible', 'true');
-    email.style.border = '2px solid #fe142f';
+    email.style.border = 'solid #fe142f 0.2rem';
     return false;
 }
 
@@ -54,7 +58,7 @@ function checkEmail() {
 function checkBirthdate() {
     if (birthdate.value.trim().length !== 10) {
         birthdate.parentElement.setAttribute('data-error-visible', 'true');
-        birthdate.style.border = '2px solid #fe142f';
+        birthdate.style.border = 'solid #fe142f 0.2rem';
         return false;
     }
     birthdate.parentElement.setAttribute('data-error-visible', 'false');
@@ -67,7 +71,7 @@ function checkBirthdate() {
 function checkTournamentsQuantity() {
     if (quantity.value.trim().length === 0 || isNaN(quantity.value.trim()) === true || quantity.value.trim() < 0) {
         quantity.parentElement.setAttribute('data-error-visible', 'true');
-        quantity.style.border = '2px solid #fe142f';
+        quantity.style.border = 'solid #fe142f 0.2rem';
         return false;
     }
     quantity.parentElement.setAttribute('data-error-visible', 'false');
@@ -141,10 +145,11 @@ function formValidation() {
     // Envoi du formulaire
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (formValidation() === true) {
-        displayModalSubmit();
-        document.querySelector('form').reset();
+    if (formValidation() == true) {
+        modalBg.style.display = 'block';
     } else {
         forAllFieldsValidation();
     }
 });
+
+
