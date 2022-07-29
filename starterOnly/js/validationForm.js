@@ -108,11 +108,11 @@ function checkCheckbox() {
 function formFieldsValidation(element, method, event) {
     element.addEventListener(event, method);
 }
-formFieldsValidation(firstName, checkFirstName, 'focusout');
-formFieldsValidation(lastName, checkLastName, 'focusout');
-formFieldsValidation(email, checkEmail, 'focusout');
-formFieldsValidation(birthdate, checkBirthdate, 'focusout');
-formFieldsValidation(quantity, checkTournamentsQuantity, 'focusout');
+formFieldsValidation(firstName, checkFirstName, 'keyup');
+formFieldsValidation(lastName, checkLastName, 'keyup');
+formFieldsValidation(email, checkEmail, 'keyup');
+formFieldsValidation(birthdate, checkBirthdate, 'change');
+formFieldsValidation(quantity, checkTournamentsQuantity, 'keyup');
 formFieldsValidation(allLocations, checkLocations, 'change');
 formFieldsValidation(checkbox1, checkCheckbox, 'change');
 
@@ -141,11 +141,16 @@ function formValidation() {
     return false;
 }
 
+const modalForm = document.getElementById('modal-form');
 
     // Envoi du formulaire
 form.addEventListener('submit', function (e) {
+
     e.preventDefault();
     if (formValidation() == true) {
+        // displayModalSubmit();
+        modalForm.style.display = 'none';
+        document.querySelector('form').reset();
         modalBg.style.display = 'block';
     } else {
         forAllFieldsValidation();
