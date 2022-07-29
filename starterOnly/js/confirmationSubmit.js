@@ -6,18 +6,19 @@ const closeBtnConfirmation = document.getElementById('close-btn-confirmation');
 
             // confirmation du submit
 
-    // afficher modal
+    // afficher message de confirmation
 function displayModalSubmit() {
     modalbg.style.display = 'none';
     modalSubmit[0].style.display = 'block';
 }
 
-    // fermer modal
+    // fermer message de confirmation
 function closeSubmit() {
-    modalSubmit[0].style.display = 'none';
+    modalbg.style.display = 'none';
+    
 }
 
-    // évènement fermeture modal
+    // évènement fermeture message de confirmation
 closeModalSubmit[0].addEventListener('click', closeSubmit);
 closeBtnConfirmation.addEventListener('click', closeSubmit);
 
