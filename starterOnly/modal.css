@@ -2,14 +2,13 @@
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
+
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-/* Page accueil */
 
 body {
   margin: 0;
@@ -21,35 +20,13 @@ body {
   margin: 0 auto;
 }
 
-p {
-  margin-bottom: 0;
-  padding: 0.5vw;
-}
-
+    /*---- header ----*/
 .topnav {
   overflow: hidden;
   margin: 3.5% 0 3.5% 4%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.header-logo {
-  float: left;
-  /* margin-left: -105px; */
-}
-
-.main-navbar {
-  float: right;
-  /* margin-right: -170px; */
-}
-
-#active {
-  background-color: #ff0000;
-  color: #ffffff !important;
-  border-radius: 15px;
-  text-decoration: underline white;
-  text-underline-offset: 3px;
 }
 
 .topnav a {
@@ -78,8 +55,16 @@ p {
   display: none;
 }
 
+#active {
+  background-color: #ff0000;
+  color: #ffffff !important;
+  border-radius: 15px;
+  text-decoration: underline white;
+  text-underline-offset: 3px;
+}
+
+    /*---- Page accueil ----*/
 main {
-  /* max-width: 1440px; */
   font-size: 130%;
   font-weight: bolder;
   color: black;
@@ -87,54 +72,97 @@ main {
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 1px 20px 15px;
-  /* margin: auto; */
   border-radius: 2rem;
   text-align: justify;
   align-items: center;
 }
 
-.modal-btn {
-  font-size: 145%;
+.hero-section {
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  overflow: hidden;
+  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content {
+  padding: 68px 70px;
+  background: #232323;
+  color: #fff;
+  position: relative;
+  text-align: left;
+  min-width: 540px;
+}
+
+.hero-content::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: -80px;
+  top: 0;
+}
+
+.hero-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-headline {
+  font-size: 4.4em;
+  font-weight: normal;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.hero-text {
+  width: 100%;
+  font-weight: normal;
+  white-space: nowrap;
+  margin-top: 20%;
+  margin-bottom: 20%;
+  padding: 0;
+  font-size: 1.3vw;
+}
+
+.hero-img {
+  grid-column: span 8; 
+}
+
+.hero-img img {
+  width: 137.4%;
+  height: 100%;
+  display: block;
+  padding: 0;
+}
+
+.hero-section > .btn-signup {
+  display: none;
+}
+
+p {
+  margin-bottom: 0;
+  padding: 0.5vw;
+}
+
+.btn-signup {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 59px;
   background: #fe142f;
   display: flex;
-  margin: auto;
-  padding: 2em;
   color: #fff;
   padding: 0.75rem 2.5rem;
-  border-radius: 1rem;
+  border-radius: 7px;
+  border: none;
   cursor: pointer;
 }
 
-.modal-btn:hover {
+.btn-signup:hover {
   background: #3876ac;
 }
 
-.footer {
-  margin: 20px;
-  padding: 10px;
-  font-family: var(--font-slab);
-}
-
-/* Modal form */
-
-.button {
-  background: #fe142f;
-  margin-top: 0.5em;
-  padding: 1em;
-  color: #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.button:hover {
-  background: #3876ac;
-} 
-
-/* .smFont {
-  font-size: 16px;
-} */
-
+    /*---- modal/formulaire inscription ----*/
 .bground {
   display: none;
   position: fixed;
@@ -165,6 +193,18 @@ main {
   padding: 15px 8%;
   margin: 15px auto;
 }
+ 
+    /*---- Apparition de la modal ----*/
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+    /*---- Fin apparition de la modal ----*/
 
 label {
   font-family: var(--font-default);
@@ -173,11 +213,13 @@ label {
   display: inline-block;
   margin-bottom: 11px;
 }
+
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
 }
+
 .text-control {
   margin: 0;
   padding: 8px;
@@ -186,6 +228,12 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+.text-label {
+  font-weight: normal;
+  font-size: 15px;
+}
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.54em;
@@ -198,19 +246,10 @@ input {
   opacity: 0;
   transition: 0.3s;
 }
+
 .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
-/* .formData[data-error-visible="true"] .text-control {
-  border: 2px solid #fe142f;
-} */
-
-
-/* input[data-error]::after {
-  content: attr(data-error);
-  font-size: 0.6em;
-  color: red;
-} */
 
 .checkbox-label,
 .checkbox2-label {
@@ -276,6 +315,26 @@ input {
   left: 21%;
   top: 19%;
 }
+
+.btn-submit {
+  display: flex;
+  width: 40%;
+  background: #fe142f;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  padding: 0.75rem 3rem;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #3876ac;
+} 
+
 .close {
   position: absolute;
   right: 15px;
@@ -301,189 +360,8 @@ input {
 .close:after {
   transform: rotate(-45deg);
 }
-.btn-submit,
-.btn-signup {
-  background: #fe142f;
-  display: block;
-  margin: 0 auto;
-  border-radius: 7px;
-  font-size: 1rem;
-  padding: 12px 82px;
-  color: #fff;
-  cursor: pointer;
-  border: 0;
 
-}
-/* custom select styles */
-/* .custom-select {
-  position: relative;
-  font-family: Arial;
-  font-size: 1.1rem;
-  font-weight: normal;
-}
-
-.custom-select select {
-  display: none;
-}
-.select-selected {
-  background-color: #fff;
-} */
-
-/* Style the arrow inside the select element: */
-/* .select-selected:after {
-  position: absolute;
-  content: "";
-  top: 10px;
-  right: 13px;
-  width: 11px;
-  height: 11px;
-  border: 3px solid transparent;
-  border-bottom-color: #f00;
-  border-left-color: #f00;
-  transform: rotate(-48deg);
-  border-radius: 5px 0 5px 0;
-} */
-
-/* Point the arrow upwards when the select box is open (active): */
-/* .select-selected.select-arrow-active:after {
-  transform: rotate(135deg);
-  top: 13px;
-} */
-
-/* .select-items div,
-.select-selected {
-  color: #000;
-  padding: 11px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-  border-radius: 8px;
-  height: 48px;
-} */
-
-/* Style items (options): */
-/* .select-items {
-  position: absolute;
-  background-color: #fff;
-  top: 89%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-} */
-
-/* Hide the items when the select box is closed: */
-/* .select-hide {
-  display: none;
-}
-
-.select-items div:hover,
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-} */
-
-/* custom select end */
-.text-label {
-  font-weight: normal;
-  font-size: 15px;
-}
-
-/* page accueil */
-.hero-section {
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  overflow: hidden;
-  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-}
-.hero-content {
-  padding: 68px 70px;
-  background: #232323;
-  color: #fff;
-  position: relative;
-  text-align: left;
-  min-width: 540px;
-}
-.hero-content::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  right: -80px;
-  top: 0;
-}
-.hero-content > * {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-headline {
-  font-size: 4.4em;
-  font-weight: normal;
-  white-space: nowrap;
-  width: 100%;
-}
-.hero-text {
-  width: 100%;
-  font-weight: normal;
-  white-space: nowrap;
-  margin-top: 20%;
-  margin-bottom: 20%;
-  padding: 0;
-  font-size: 1.3vw;
-}
-.btn-signup {
-  /* width: 195px;
-  outline: none;
-  text-transform: capitalize;
-  font-size: 1.6rem;
-  padding: 15px 23px;
-  margin: 0;
-  margin-top: 59px; */
-
-  outline: none;
-  text-transform: none;
-  font-size: 1.3rem;
-  padding: 15px 23px;
-  margin: 0;
-  margin-top: 59px;
-  width: 12.5rem
-}
-.hero-img {
-  grid-column: span 8; 
-}
-.hero-img img {
-  width: 137.4%;
-  height: 100%;
-  display: block;
-  padding: 0;
-}
-
-.hero-section > .btn-signup {
-  display: none;
-}
-
-/* footer */
-.copyrights {
-  color: #fe142f;
-  padding: 0;
-  font-size: 0.8rem;
-  margin: 60px 0 30px;
-  font-weight: bolder;
-}
-
-
-
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Confirmation inscription */
+    /*---- Confirmation inscription ----*/
 .container-confirmation-submit {
   display: none;
   position: fixed;
@@ -569,9 +447,18 @@ input {
   background: #3876ac;
 }
 
-          /* responsive */
+    /*---- footer ----*/
+.copyrights {
+  color: #fe142f;
+  padding: 0;
+  font-size: 0.8rem;
+  margin: 60px 0 30px;
+  font-weight: bolder;
+}
 
-/* mobile */
+          /*---- responsive ----*/
+
+    /*---- mobile ----*/
 @media screen and (max-width: 768px) {
   .topnav {
     flex-wrap: wrap;
@@ -643,16 +530,3 @@ input {
     text-align: center;
   }
 }
-
-
-
-/* @media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} */
