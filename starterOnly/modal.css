@@ -488,8 +488,12 @@ input {
     text-align: left;
   }
 
+        /* icon burger */
   .fa {
     color: #ff0000;
+  }
+  a.icon:hover {
+    background-color: transparent;
   }
 
   .header-logo img {
