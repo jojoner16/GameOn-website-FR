@@ -21,10 +21,12 @@ closeBtn[0].addEventListener("click", closeModal);
   // ------ display nav responsive ------ //
   // edit nav
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  
+  const mobileNavbar = document.getElementById("mobile-navbar");
+  if (mobileNavbar.style.display === "none") {
+    mobileNavbar.style.display = "block";
   } else {
-    x.className = "topnav";
+    
+    mobileNavbar.style.display = "none";
   }
 }
