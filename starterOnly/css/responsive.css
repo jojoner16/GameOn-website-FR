@@ -11,9 +11,11 @@
     z-index: 2;
     left: 40%;
     background-color: #fff;
-    list-style: none;
     padding: 6px;
     border-radius: 10px;
+  }
+  ul{
+    list-style: none;
   }
   #mobile-navbar span {
     color: #000;
@@ -21,9 +23,16 @@
     font-weight: bold;
     padding: 10px;
   }
-  #active span {
+  #activeM span {
     color: #ffffff !important;
     text-decoration: underline;
+  }
+  #activeM {
+    background-color: #ff0000;
+    color: #ffffff !important;
+    border-radius: 15px;
+    text-decoration: underline white;
+    text-underline-offset: 4px;
   }
   #mobile-navbar span:hover {
     background-color: #ff0000;
