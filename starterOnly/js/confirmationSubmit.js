@@ -15,7 +15,6 @@ function displayModalSubmit() {
     // fermer message de confirmation
 function closeSubmit() {
     modalbg.style.display = 'none';
-    
 }
 
     // évènement fermeture message de confirmation

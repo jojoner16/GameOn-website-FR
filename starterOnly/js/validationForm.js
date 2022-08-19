@@ -12,7 +12,10 @@ const locations = document.querySelectorAll('#allLocations .checkbox-input');
 const checkbox1 = document.getElementById('checkbox1');
 const input = document.getElementsByClassName('text-control');
 const form = document.getElementById('form');
-const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+const modalForm = document.getElementById('modal-form');
+const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/; // regex pour les noms et prénoms
+const reg = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Vérification de l'email
+
 
                                 //----- Validation formulaire ------//
 
@@ -42,7 +45,6 @@ function checkLastName() {
 
     // Validation de l'email
 function checkEmail() {
-    const reg = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
     if (email.value.trim().match(reg)) {
         email.parentElement.setAttribute('data-error-visible', 'false');
         email.style.border = 'solid #279e7a 0.2rem';
@@ -140,8 +142,6 @@ function formValidation() {
     }
     return false;
 }
-
-const modalForm = document.getElementById('modal-form');
 
     // Envoi du formulaire
 form.addEventListener('submit', function (e) {
