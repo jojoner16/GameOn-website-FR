@@ -148,7 +148,6 @@ form.addEventListener('submit', function (e) {
 
     e.preventDefault();
     if (formValidation() == true) {
-        // displayModalSubmit();
         modalForm.style.display = 'none';
         document.querySelector('form').reset();
         modalBg.style.display = 'block';
