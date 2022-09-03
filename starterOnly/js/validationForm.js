@@ -13,7 +13,9 @@ const checkbox1 = document.getElementById('checkbox1');
 const input = document.getElementsByClassName('text-control');
 const form = document.getElementById('form');
 const modalForm = document.getElementById('modal-form');
-const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/; // regex pour les noms et prénoms
+
+// const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/; // regex pour les noms et prénoms
+const regex = '[a-zA-Z0-9._-]';
 const reg = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/; // Vérification de l'email
 
 
@@ -147,7 +149,7 @@ function formValidation() {
 form.addEventListener('submit', function (e) {
 
     e.preventDefault();
-    if (formValidation() == true) {
+    if (formValidation() === true) {
         modalForm.style.display = 'none';
         document.querySelector('form').reset();
         modalBg.style.display = 'block';
